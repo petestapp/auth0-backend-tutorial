@@ -1,8 +1,6 @@
 package com.example.menu.item;
 
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Positive;
+import javax.validation.constraints.*;
 import org.hibernate.validator.constraints.URL;
 import org.springframework.data.annotation.Id;
 

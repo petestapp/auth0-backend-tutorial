@@ -1,6 +1,6 @@
 package com.example.menu.item;
 
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
@@ -37,7 +37,7 @@ public class ItemController {
     }
 
     @PostMapping
-    public ResponseEntity<Item> create(@Valid @RequestBody Item item) {
+    public ResponseEntity<Item> create(@RequestBody Item item) {
         Item created = service.create(item);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")
