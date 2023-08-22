@@ -1,5 +1,6 @@
 package com.example.menu.item;
 
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -30,7 +31,7 @@ public class ItemController {
     }
 
     @PostMapping
-    public ResponseEntity<Item> create(@RequestBody Item item) {
+    public ResponseEntity<Item> create(@Valid @RequestBody Item item) {
         Item created = service.create(item);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")
@@ -42,7 +43,7 @@ public class ItemController {
     @PutMapping("/{id}")
     public ResponseEntity<Item> update(
             @PathVariable("id") Long id,
-            @RequestBody Item updatedItem) {
+            @Valid @RequestBody Item updatedItem) {
         Optional<Item> updated = service.update(id, updatedItem);
 
         return updated
